@@ -16,12 +16,10 @@ install:
 build:
 	/bin/bash ./build.sh
 
-
 # Copy binary file into the docker container.
 .PHONY: docker-copy
 docker-copy:
 	docker cp ./compile/nettop.linux.amd64 rocky:/usr/bin/nettop
-
 
 # Copy binary file into the linux server.
 #
