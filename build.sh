@@ -20,18 +20,17 @@ function PrintLogFunc()
   log_info=$1
   use_color=$2
 
-  # 如果{输出文字渲染颜色}长度为0时，则使用默认颜色.
+  # If the length of {use_color} is 0, the default color will be used.
   if [ -z "$use_color" ]; then
     use_color=0
   fi
 
-  # 如果{输出文字渲染颜色}参数为1时，时使用{蓝色}文字，否则默认文字颜色.
   if [ $use_color = "WARNING" ]; then
-    echo -e "\033[31m[`date +"%Y-%m-%d %H:%M:%S"`] WARNING -  ${log_info} \033[0m"
+    echo -e "\033[31m[$(date +"%Y-%m-%d %H:%M:%S")] WARNING -  ${log_info} \033[0m"
   elif [ $use_color = "INFO" ]; then
-    echo -e "\033[32m[`date +"%Y-%m-%d %H:%M:%S"`] INFO -  ${log_info} \033[0m"
+    echo -e "\033[32m[$(date +"%Y-%m-%d %H:%M:%S")] INFO -  ${log_info} \033[0m"
   else
-    echo "[`date +"%Y-%m-%d %H:%M:%S"`] DEBUG - ${log_info}"
+    echo "[$(date +"%Y-%m-%d %H:%M:%S")] DEBUG - ${log_info}"
   fi
 
   # 输出两行空行.
