@@ -1,30 +1,40 @@
-# nettop
-a simple command line Bandwidth Monitor by parsing `/proc/net/dev` to calculator.
+# speedtestx
 
-## Build
+Based speedtest check network bandwidth cli application.
+
+## Download
+
 ```
-$ go build -o nettop nettop.go
+$ wget https://github.com/go-tof/speedtestx/releases/download/v1.0.0/speedtestx.<platform>.<cpu_arch> -O /usr/local/bin/speedtestx
 ```
 
 ## Usage
-```
-Usage of nettop:
-	-c uint
-		count (0 == unlimit)
-	-i string
-		interface (default "*")
-	-t float
-		update time(s) (default 2)
-	-v int
-		verbosity (default 2)
 
+```shell script
+$ speedtestx -h
+NAME:
+   speedtestx - based speedtest check network bandwidth cli application
+
+USAGE:
+   speedtestx [global options] command [command options] [arguments...]
+
+VERSION:
+   1.0.0
+
+COMMANDS:
+   help, h  Shows a list of commands or help for one command
+
+GLOBAL OPTIONS:
+   --all value       All check network bandwidth result data.
+   --upload value    All check network upload bandwidth result data.
+   --download value  All check network download bandwidth result data.
+   --help, -h        show help (default: false)
+   --version, -v     print the version (default: false)
+
+COPYRIGHT:
+   Copyright (c) 2021 helloshaohua, contact email address wu.shaohua@foxmail.com
 ```
 
-## Output
-```
-$ ./nettop -i eth0 -t 1 -c 3
-BW:	eth0	66.00 B/s	66.00 B/s
-```
 
 ## LICENSE - MIT
 
@@ -32,7 +42,7 @@ BW:	eth0	66.00 B/s	66.00 B/s
 
 MIT License
 
-Copyright (c) 2021 Go Time of Flight.
+Copyright (c) 2021 helloshaohua.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
