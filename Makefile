@@ -9,7 +9,7 @@
 # Install cli application with the features.
 .PHONY: install
 install:
-	go install ./cmd/nettop
+	go install ./cmd/speedtestx
 
 # Build cli application with the features.
 .PHONY: build
@@ -17,9 +17,12 @@ build:
 	/bin/bash ./build.sh
 
 # Copy binary file into the docker container.
+#
+# Usage:
+# 	make linux-copy CONTAINER_NAME=rocky
 .PHONY: docker-copy
 docker-copy:
-	docker cp ./compile/nettop.linux.amd64 rocky:/usr/bin/nettop
+	docker cp ./compile/speedtest.linux.amd64 $(CONTAINER_NAME):/usr/bin/speedtest
 
 # Copy binary file into the linux server.
 #
@@ -28,4 +31,4 @@ docker-copy:
 # 	make linux-copy LINUX_REMOTE_IP=192.168.1.100
 .PHONY: linux-copy
 linux-copy:
-	scp ./compile/nettop.linux.amd64 root@$(LINUX_REMOTE_IP):/usr/local/bin/nettop
+	scp ./compile/speedtest.linux.amd64 root@$(LINUX_REMOTE_IP):/usr/local/bin/speedtest

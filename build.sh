@@ -63,8 +63,8 @@ function GetPlatformAndCPUArchFunc()
 for INFO in "${PLATFORM_AND_CPU_ARCH[@]}"; do
   GetPlatformAndCPUArchFunc "$INFO"
 
-  BUILD_PROGRAM_NAME="nettop.$PLATFORM.$CPU_ARCH"
-  GOOS="$PLATFORM" GOARCH="$CPU_ARCH" go build -o "$BUILD_COMPILE_DIR/$BUILD_PROGRAM_NAME" ./cmd/nettop
+  BUILD_PROGRAM_NAME="speedtestx.$PLATFORM.$CPU_ARCH"
+  GOOS="$PLATFORM" GOARCH="$CPU_ARCH" go build -o "$BUILD_COMPILE_DIR/$BUILD_PROGRAM_NAME" ./cmd/speedtestx
 
   PrintLogFunc "Build $BUILD_PROGRAM_NAME successfully~" INFO
 done
