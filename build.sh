@@ -6,9 +6,11 @@
 # Date: 2021.6.13.
 
 BUILD_COMPILE_DIR="./compile"
-PLATFORM_AND_CPU_ARCH=("linux/amd64" "linux/arm64" "linux/mips64")
+PLATFORM_AND_CPU_ARCH=("darwin/amd64" "linux/amd64" "linux/arm64" "linux/mips64" "windows/amd64" "windows/386" "windows/arm")
 PLATFORM=""
 CPU_ARCH=""
+readonly WINDOWS="windows"
+readonly WINDOWS_EXECUTABLE_FILE_EXT="exe"
 
 
 # PrintLogFunc Format the print log function.
@@ -63,6 +65,11 @@ for INFO in "${PLATFORM_AND_CPU_ARCH[@]}"; do
   GetPlatformAndCPUArchFunc "$INFO"
 
   BUILD_PROGRAM_NAME="speedtestx.$PLATFORM.$CPU_ARCH"
+
+  if [ $PLATFORM = $WINDOWS ]; then
+    BUILD_PROGRAM_NAME="${BUILD_PROGRAM_NAME}.${WINDOWS_EXECUTABLE_FILE_EXT}"
+  fi
+
   GOOS="$PLATFORM" GOARCH="$CPU_ARCH" go build -o "$BUILD_COMPILE_DIR/$BUILD_PROGRAM_NAME" ./cmd/speedtestx
 
   PrintLogFunc "Build $BUILD_PROGRAM_NAME successfully~" INFO
