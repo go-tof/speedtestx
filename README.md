@@ -8,7 +8,7 @@ Based speedtest check network bandwidth cli application.
 $ wget https://github.com/go-tof/speedtestx/releases/download/v1.0.0/speedtestx.<platform>.<cpu_arch> -O /usr/local/bin/speedtestx
 ```
 
-## Usage
+## Cli Usage
 
 ```shell script
 $ speedtestx -h

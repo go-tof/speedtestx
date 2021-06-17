@@ -8,7 +8,7 @@ import (
 )
 
 func TestDownload(t *testing.T) {
-	bytes, err := ioutil.ReadFile("./speedtest_fail.txt")
+	bytes, err := ioutil.ReadFile("./speedtest.txt")
 	assert.NoError(t, err)
 
 	speeder, err := NewSpeederWithBytes(bytes)
